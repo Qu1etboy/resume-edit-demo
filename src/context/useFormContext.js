@@ -126,6 +126,7 @@ const FormProvider = ({ children }) => {
     setWorkExps([{ id: uuid(), workExp: {} }]);
     setSkills([{ id: uuid(), skill: {} }]);
     setContacts([{ id: uuid(), contact: {} }]);
+    setProjects([{ id: uuid(), project: {} }]);
   };
 
   return (
