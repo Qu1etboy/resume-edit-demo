@@ -2,7 +2,7 @@
 
 Fast and Simple resume maker website just type in your information and download your resume as a PDF file.
 
-try it now -> resume.edit
+**try it now** 👉 [resume.edit](https://resume-edit.vercel.app/)
 
 ## Stack
 
