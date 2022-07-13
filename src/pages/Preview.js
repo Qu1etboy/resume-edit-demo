@@ -66,7 +66,7 @@ const Preview = () => {
                 <span className="font-bold">{workExp.workExp.jobTitle}</span>
               </li>
               <div
-                className="prose prose-stone max-w-full"
+                className="prose prose-stone max-w-full printable"
                 dangerouslySetInnerHTML={{
                   __html: md().render(
                     workExp.workExp.dest ? workExp.workExp.dest : ''

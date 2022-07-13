@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useForm } from '../context/useFormContext';
+import ControlledInput from './ControlledInput';
+import ControlledTextArea from './ControlledTextArea';
 
 export const EducationForm = ({ id, value }) => {
   const [education, setEducation] = useState(() =>
@@ -19,21 +21,21 @@ export const EducationForm = ({ id, value }) => {
 
   return (
     <div className="flex gap-2">
-      <input
+      <ControlledInput
         placeholder="degree"
         value={value.degree}
         name="degree"
         className="border-2 rounded-md p-2 w-full mb-2"
         onChange={e => handleChange(e)}
       />
-      <input
+      <ControlledInput
         placeholder="school"
         value={value.school}
         name="school"
         className="border-2 rounded-md p-2 w-full mb-2"
         onChange={e => handleChange(e)}
       />
-      <input
+      <ControlledInput
         placeholder="year"
         value={value.year}
         name="year"
@@ -66,14 +68,14 @@ export const WorkForm = ({ id, value }) => {
   return (
     <div className="">
       <div className="grid grid-cols-2 gap-2">
-        <input
+        <ControlledInput
           placeholder="company"
           value={value.company}
           name="company"
           className="border-2 rounded-md p-2 mb-2"
           onChange={e => handleChange(e)}
         />
-        <input
+        <ControlledInput
           placeholder="job title"
           value={value.jobTitle}
           name="jobTitle"
@@ -81,7 +83,7 @@ export const WorkForm = ({ id, value }) => {
           onChange={e => handleChange(e)}
         />
         <br />
-        <textarea
+        <ControlledTextArea
           rows="5"
           cols="30"
           value={value.dest}
@@ -100,7 +102,6 @@ export const WorkForm = ({ id, value }) => {
 
 export const SkillForm = ({ id, value }) => {
   const [skill, setSkill] = useState(() => (value ? value : { skill: '' }));
-
   const { handleSkillInput, removeSkill } = useForm();
 
   const handleChange = e => {
@@ -109,13 +110,14 @@ export const SkillForm = ({ id, value }) => {
       [e.target.name]: e.target.value,
     });
   };
+
   useEffect(() => {
     handleSkillInput({ skill, id });
   }, [skill]);
 
   return (
     <div className="flex gap-2">
-      <input
+      <ControlledInput
         placeholder="skill"
         value={value.skill}
         name="skill"
@@ -146,14 +148,14 @@ export const ContactForm = ({ id, value }) => {
   }, [contact]);
   return (
     <div className="flex gap-2">
-      <input
+      <ControlledInput
         placeholder="label"
         value={value.label}
         name="label"
         className="border-2 rounded-md p-2 w-full mb-2"
         onChange={e => handleChange(e)}
       />
-      <input
+      <ControlledInput
         placeholder="link"
         value={value.link}
         name="link"
@@ -184,14 +186,14 @@ export const ProjectForm = ({ id, value }) => {
 
   return (
     <div className="flex flex-col">
-      <input
+      <ControlledInput
         placeholder="project name"
         name="name"
         value={value.name}
         onChange={e => handleChange(e)}
         className="border-2 rounded-md p-2 w-full mb-2"
       />
-      <textarea
+      <ControlledTextArea
         placeholder="description"
         name="dest"
         value={value.dest}
